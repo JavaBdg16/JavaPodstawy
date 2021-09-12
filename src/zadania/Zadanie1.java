@@ -15,6 +15,7 @@ public class Zadanie1 {
 
         System.out.println("Postać binarna liczby " + number + " to " + convertDecimalToBinary(number));
         System.out.println("Postać binarna liczby " + number + " to " + convertDecimalToBinaryUsingString(number));
+        System.out.println("Postać binarna liczby " + number + " to " + convertDecimalToBinaryUsingBaseTab(number));
     }
 
     /**
@@ -70,6 +71,44 @@ public class Zadanie1 {
             number /= 2;
 
             binary = r + binary;
+        }
+
+        return binary;
+    }
+
+    private static String convertDecimalToBinaryUsingBaseTab(int number) {
+
+        String binary = "";
+        String[] base = { "0", "1" };
+
+        // 29
+
+        // hexa = ""
+
+        // 29 mod 2 = 14 r 1
+        // hexa = r + hexa = ([1] = 1) + "" = "1"
+        // 29 -> 14
+
+        // 14 mod 2 = 7 r 0
+        // hexa = r + hexa = ([0] = 0) + "1" = "01"
+        // 14 -> 7
+
+        // 7 mod 2 = 3 r 1
+        // hexa = r + hexa = ([1] = 1) + "01" = "101"
+        // 7 -> 3
+
+        // 3 mod 2 = 1 r 1
+        // hexa = r + hexa = ([1] = 1) + "101" = "1101"
+        // 3 -> 1
+
+        // 1 mod 2 = 0 r 1
+        // hexa = r + hexa = ([1] = 1) + "1101" = "11101"
+        // 1 -> 0
+
+        while (number != 0) {
+            int r = number % base.length;
+            binary = base[r] + binary;
+            number /= base.length;
         }
 
         return binary;
