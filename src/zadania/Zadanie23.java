@@ -54,6 +54,31 @@ public class Zadanie23 {
         }
     }
 
+    static int binarySearchRecurency(int[] tab, int searchValue, int startIndex, int endIndex) {
+
+        int index = (startIndex + endIndex) / 2;
+
+        // warunek elementerny
+        // ścieżka pozytywna
+        if (tab[index] == searchValue) {
+            return index;
+        }
+
+        // ścieżka negatywna
+        if (endIndex < startIndex) {
+            return -1;
+        }
+
+        // warunek złożony
+        if (tab[index] > searchValue) {
+            endIndex = index - 1;
+        } else if (tab[index] < searchValue) {
+            startIndex = index + 1;
+        }
+
+        return binarySearchRecurency(tab, searchValue, startIndex, endIndex);
+    }
+
     public static void main(String[] args) {
         int[] tab = { 3, 6, 8, 11, 45, 47, 69, 99 };
         System.out.println(binarySearch(tab, 3));
@@ -65,5 +90,17 @@ public class Zadanie23 {
         System.out.println(binarySearch(tab, 69));
         System.out.println(binarySearch(tab, 99));
         System.out.println(binarySearch(tab, 10));
+
+        System.out.println("A teraz rekurencyjnie");
+
+        System.out.println(binarySearchRecurency(tab, 3, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 6, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 8, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 11, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 45, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 47, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 69, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 99, 0, tab.length - 1));
+        System.out.println(binarySearchRecurency(tab, 10, 0, tab.length - 1));
     }
 }
