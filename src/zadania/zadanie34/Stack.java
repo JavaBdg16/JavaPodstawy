@@ -28,18 +28,40 @@ public class Stack {
         return stackElement;
     }
 
+    public StackElement pop() {
+
+        if (currentSize == 0) {
+            System.out.println("Stos jest pusty");
+            return null;
+        }
+
+        StackElement result = stackElements[--currentSize];
+
+        return result;
+    }
+
+    public StackElement peek() {
+
+        if (currentSize == 0) {
+            System.out.println("Stos jest pusty");
+            return null;
+        }
+
+        return stackElements[currentSize - 1];
+    }
+
     public int count() {
         return currentSize;
     }
 
     private boolean checkStackElementExistance(StackElement stackElement) {
 
-        for (StackElement se : stackElements) {
-            if (se == null) {
+        for (int i = 0; i < currentSize; i ++) {
+            if (stackElements[i] == null) {
                 continue;
             }
 
-            if (se.equals(stackElement)) {
+            if (stackElements[i].equals(stackElement)) {
                 return true;
             }
         }

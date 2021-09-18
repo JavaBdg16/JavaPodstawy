@@ -1,25 +1,25 @@
-package zadania.zadanie34;
+package zadania.zadanie36;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class StackElement {
+public class QueueItem {
 
+    private QueueItem next;
     private String name;
-
     private Date createDate;
 
-    public StackElement(String name) {
+    public QueueItem(String name) {
         this.name = name;
-        this.createDate = new Date();
+        createDate = new Date();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StackElement that = (StackElement) o;
-        return Objects.equals(name, that.name);
+        QueueItem queueItem = (QueueItem) o;
+        return Objects.equals(name, queueItem.name);
     }
 
     @Override
@@ -27,12 +27,12 @@ public class StackElement {
         return Objects.hash(name);
     }
 
-    @Override
-    public String toString() {
-        return "StackElement{" +
-                "name='" + name + '\'' +
-                ", createDate=" + createDate +
-                '}';
+    public QueueItem getNext() {
+        return next;
+    }
+
+    public void setNext(QueueItem next) {
+        this.next = next;
     }
 
     public String getName() {

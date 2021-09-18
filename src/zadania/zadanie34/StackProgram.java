@@ -12,5 +12,19 @@ public class StackProgram {
 
         System.out.println();
         System.out.println(stack.count());
+
+        System.out.println(stack.peek());
+        System.out.println(stack.count());
+        System.out.println(stack.count());
+        System.out.println(stack.pop());
+
+        System.out.println(stack.count());
+        System.out.println(stack.pop());
+
+        System.out.println(stack.count());
+        System.out.println(stack.pop());
+
+        System.out.println(stack.count());
+        System.out.println(stack.pop());
     }
 }
