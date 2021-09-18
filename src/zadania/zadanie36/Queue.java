@@ -1,5 +1,9 @@
 package zadania.zadanie36;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 public class Queue {
 
     private QueueItem head;
@@ -48,6 +52,24 @@ public class Queue {
         }
 
         return queueItem;
+    }
+
+    public QueueItem poll() {
+
+        if (head == null) {
+            System.out.println("kolejka jest pusta");
+            return null;
+        }
+
+        QueueItem temp = head;
+        head = head.getNext();
+
+        return temp;
+    }
+
+    public QueueItem poll(int index) {
+
+        return null;
     }
 
     public int count() {

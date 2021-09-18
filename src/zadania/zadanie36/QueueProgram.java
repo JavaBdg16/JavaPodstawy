@@ -14,5 +14,9 @@ public class QueueProgram {
         queue.add(new QueueItem("Nowy index 2"), 2);
 
         System.out.println(queue.count());
+
+        queue.poll();
+
+        System.out.println(queue.count());
     }
 }
